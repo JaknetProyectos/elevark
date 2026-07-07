@@ -3,7 +3,7 @@
 import { useServices } from "@/hooks/useServices";
 import { usePackages } from "@/hooks/usePackages";
 import { ContactSection } from "@/components/ContactSection";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useCart } from "@/context/CartContext";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
