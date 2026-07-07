@@ -1,0 +1,338 @@
+{
+  "cartPage": {
+    "breadcrumb": {
+      "home": "Inicio",
+      "summary": "1. Revisión",
+      "shippingPayment": "2. Entrega y Pago"
+    },
+    "success": {
+      "title": "¡Transacción Completada Exitosamente!",
+      "description": "Tu pago ha sido autorizado. El entorno cloud de tu plan de hosting ya está en fase de configuración para su activación.",
+      "paymentReference": "Referencia de Pago:",
+      "paidAmount": "Monto Liquidado:",
+      "transactionStatus": "Estado del Pago:",
+      "approved": "AUTORIZADA",
+      "backToCatalog": "Regresar al Catálogo"
+    },
+    "empty": {
+      "title": "Tu cesta de compras está vacía",
+      "description": "No se detectaron servicios de hosting guardados en tu sesión de navegación actual.",
+      "goToStore": "Ver el Catálogo"
+    },
+    "order": {
+      "title": "Productos en tu orden",
+      "clear": "Eliminar Planes"
+    },
+    "financial": {
+      "title": "Resumen de Cuenta",
+      "couponPlaceholder": "Código promocional",
+      "applyCoupon": "Aplicar",
+      "appliedCoupon": "Cupón {code} (-{discount}%)",
+      "remove": "Quitar",
+      "couponInvalid": "El código de descuento no es válido o ya expiró.",
+      "subtotal": "Subtotal de Productos:",
+      "discount": "Descuento Obtenido:",
+      "netTotal": "Monto Neto a Liquidar:",
+      "tax": "IVA {tax}"
+    },
+    "actions": {
+      "proceedToPayment": "Avanzar al Pago",
+      "processing": "Validando Transacción por medio de Octano...",
+      "payAmount": "Pagar {amount}",
+      "backToCart": "Modificar pedido / Modificar cupón"
+    },
+    "errors": {
+      "declined": "El cargo fue denegado por el banco emisor.",
+      "connection": "Se experimentó un problema de enlace con el procesador de pagos."
+    },
+    "metadata": {
+      "couponApplied": "Cupón de descuento activo",
+      "standardSale": "Adquisición digital convencional"
+    },
+    "form": {
+      "buyerTitle": "Datos de Facturación / Comprador",
+      "addressTitle": "Información de Contacto y Activación",
+      "paymentTitle": "Pasarela de Cobro Encriptada",
+      "firstName": "Nombre(s) *",
+      "lastName": "Apellidos *",
+      "email": "Correo electrónico *",
+      "phone": "Teléfono Móvil (10 posiciones) *",
+      "company": "Empresa (Opcional)",
+      "streetAddress": "Vía pública, Número Exterior y Número Interior *",
+      "streetAddressPlaceholder": "Av. Universidad 450, Int 4",
+      "neighborhood": "Colonia / Entre Calles (Opcional)",
+      "neighborhoodPlaceholder": "Col. Vértiz Narvarte",
+      "city": "Alcaldía o Localidad *",
+      "state": "Provincia / Estado *",
+      "statePlaceholder": "CDMX",
+      "postalCode": "Código Postal *",
+      "country": "Territorio",
+      "mexico": "México (MX)",
+      "cardNumber": "Número de Tarjeta (Visa / Mastercard) *",
+      "cardNumberPlaceholder": "4152 0000 0000 0000",
+      "cardHolderName": "Titular de la Tarjeta *",
+      "cardHolderPlaceholder": "Tal como aparece en la tarjeta",
+      "expiryMonth": "Mes Exp. (MM) *",
+      "expiryMonthPlaceholder": "05",
+      "expiryYear": "Año Exp. (AAAA) *",
+      "expiryYearPlaceholder": "2029",
+      "cvv": "Código de Verificación (CVV) *",
+      "cvvPlaceholder": "•••"
+    },
+    "security": {
+      "note": "Proceso gestionado bajo estándares de seguridad"
+    },
+    "images": {
+      "etominAlt": "Octano",
+      "securePaymentAlt": "Pago seguro"
+    }
+  },
+  "customPlan": {
+    "hero": {
+      "badge": "Panel de Usuarios",
+      "title": "Añadir presupuesto personalizado"
+    },
+    "imageAlt": "Logo de Elevark",
+    "authorized": {
+      "title": "Cobro verificado",
+      "description": "Introduce la clave de cotización y el monto previamente validado con nuestra área comercial para avanzar con la facturación."
+    },
+    "form": {
+      "badge": "Checkout a la medida",
+      "title": "Detalles del presupuesto",
+      "quoteLabel": "Clave de cotización",
+      "quotePlaceholder": "Ej. ELV-2026-001",
+      "amountLabel": "Cifra acordada",
+      "amountPlaceholder": "0.00",
+      "taxNote": "+ El impuesto correspondiente en el siguiente paso."
+    },
+    "buttons": {
+      "adding": "Sumando a la cesta...",
+      "addToCart": "Añadir a la cesta"
+    },
+    "errors": {
+      "quoteRequired": "Es necesario proporcionar un identificador de cotización válido.",
+      "invalidAmount": "Es necesario indicar una cifra financiera válida."
+    }
+  },
+  "header": {
+    "logoAlt": "Elevark",
+    "titleAlt": "Elevark",
+    "cart": "Carrito",
+    "changeLanguage": "Cambiar idioma",
+    "nav": {
+      "home": "Inicio",
+      "about": "Nosotros",
+      "solutions": "Soluciones",
+      "processes": "Procesos"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "part1": "Impulsa tu",
+        "highlight": "marca",
+        "part2": "con diseño y estrategia"
+      },
+      "description": "Creamos experiencias visuales y estrategias digitales que no solo se ven bien, sino que convierten. Branding, contenido, automatización y campañas con una estética moderna y enfocada en resultados.",
+      "imageAlt": "Marketing Digital"
+    },
+    "services": {
+      "branding": {
+        "category": "Branding",
+        "title": "Logo & Identidad"
+      },
+      "content": {
+        "category": "Contenido",
+        "title": "Diseño & Creativos"
+      },
+      "motion": {
+        "category": "Motion",
+        "title": "Animaciones & Ads"
+      }
+    },
+    "strategy": {
+      "tag": "Estrategia digital",
+      "title": {
+        "part1": "Posiciona tu marca",
+        "highlight": "donde importa"
+      },
+      "description": "Diseñamos estrategias digitales orientadas a crecimiento, reconocimiento y conversión. Menos ruido, más impacto.",
+      "button": "Comenzar ahora",
+      "imageAlt": "Posiciona tu marca"
+    }
+  },
+  "contact": {
+    "title": "¡Conectemos!",
+    "description": "En Elevark estamos listos para llevar tus ideas a la realidad con estrategias digitales personalizadas que realmente captan y convierten. ¿Listo para transformar tu presencia online? Escríbenos, llamamos, o ven a visitarnos.",
+    "info": {
+      "email": {
+        "label": "Email",
+        "value": "ayuda@elevark.com.mx"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "value": "5550881886"
+      },
+      "address": {
+        "label": "Dirección",
+        "value": "Calle Alfonso Napoles Gándara #50, Int 401, Piso 4, Col. Peña Blanca Santa Fe, Cp. 01210, Alcaldía Alvaro Obregon, Ciudad De México"
+      }
+    },
+    "form": {
+      "placeholders": {
+        "name": "Nombre",
+        "email": "Email",
+        "phone": "Número telefónico",
+        "message": "Mensaje"
+      },
+      "successMessage": "Mensaje enviado correctamente.",
+      "errorFallback": "No se pudo enviar el mensaje",
+      "buttons": {
+        "send": "ENVIAR",
+        "sending": "ENVIANDO..."
+      }
+    }
+  },
+  "footer": {
+    "legal": {
+      "title": "Información legal",
+      "terms": "Términos y condiciones",
+      "refunds": "Devoluciones y reembolsos",
+      "privacy": "Política de privacidad",
+      "paymentAlt": "Métodos de pago"
+    },
+    "contact": {
+      "title": "Contacto",
+      "phoneLabel": "Teléfono",
+      "addressLabel": "Dirección",
+      "addressLine1": "CALLE ALFONSO NAPOLES GANDARA #50",
+      "addressLine2": "INT 401, PISO 4, COL. PEÑA BLANCA",
+      "addressLine3": "SANTA FE, CP. 01210",
+      "addressLine4": "CIUDAD DE MÉXICO",
+      "emailLabel": "Correo"
+    },
+    "brand": {
+      "tagline": "Soluciones digitales con tecnología, estrategia y diseño."
+    },
+    "copyright": "Todos los derechos reservados."
+  },
+  "about": {
+    "hero": {
+      "tag": "Nosotros",
+      "title": {
+        "part1": "Conece a los expertos",
+        "part2": "en",
+        "highlight": "estrategia y diseño"
+      },
+      "description": "En Elevark, creemos que cada detalle en el diseño comunica algo esencial sobre tu marca. Nuestros especialistas son líderes en transformar conceptos en realidades visuales impactantes, está aquí para asegurarse de que tu mensaje no solo sea visto, sino sentido.",
+      "specializationLabel": "Áreas de Especialización:"
+    },
+    "specializations": {
+      "branding": {
+        "title": "Logotipo e identidad",
+        "description": "Fortalece tu presencia de marca con diseños que capturan la esencia de tu empresa."
+      },
+      "illustration": {
+        "title": "Ilustración e iconos",
+        "description": "Visualiza tu mensaje con gráficos hechos a medida que hablan más que palabras."
+      },
+      "interaction": {
+        "title": "Interacción y movimiento",
+        "description": "Atrae y mantén la atención con animaciones y transiciones fluidas que mejoran la experiencia."
+      }
+    },
+    "history": {
+      "tag": "Nuestra Historia",
+      "title": {
+        "part1": "Nuestra Historia y",
+        "highlight": "Competencias"
+      },
+      "description": "En Elevark, transformamos datos en diseño, creando soluciones visuales que no solo capturan la atención, sino que también impulsan la conversión. Nuestro equipo combina años de experiencia en análisis de mercado con una pasión innegable por el diseño creativo, asegurando que cada proyecto no solo cumpla, sino supere las expectativas de nuestros clientes."
+    },
+    "skills": {
+      "design": "Logo y diseño",
+      "illustrations": "Ilustraciones complejas",
+      "icons": "Icon Sets",
+      "motion": "Gráficos con movimiento"
+    },
+    "highlights": {
+      "experience": "Experiencia Comprobada",
+      "awards": "Reconocimientos",
+      "education": "Capacitación y Educación"
+    }
+  },
+  "plans": {
+    "services": {
+      "title": "Servicios",
+      "description": "Hagamos que tu empresa desarrolle todo su potencial juntos con nuestros servicios especializados"
+    },
+    "customProject": {
+      "imageAlt": "Proyecto Personalizado",
+      "title": "Proyecto Personalizado",
+      "description": "En nuestra empresa, entendemos que cada negocio es único. Por eso, nos especializamos en crear proyectos personalizados que se adapten a las necesidades específicas de su empresa, asegurando que cada estrategia de marketing y diseño esté perfectamente alineada con sus objetivos y visión. Cotiza ahora tu proyecto o procede al pago.",
+      "buttons": {
+        "quote": "Cotizar",
+        "pay": "Pagar"
+      }
+    },
+    "packages": {
+      "title": "Paquetes",
+      "description": "Simplifica tus operaciones y optimiza tus recursos. Nuestros paquetes de servicios te ayudarán a alcanzar la eficiencia máxima."
+    },
+    "cards": {
+      "taxNote": "MXN + IVA",
+      "recommended": "Recomendado",
+      "addToCart": "Agregar al Carrito"
+    }
+  },
+  "processes": {
+    "hero": {
+      "tag": "Nuestros Procesos",
+      "title": {
+        "part1": "De la conceptualización",
+        "part2": "a la",
+        "highlight": "creación"
+      },
+      "description": "En Elevark transformamos ideas abstractas en ilustraciones impactantes. En este estudio de caso, exploramos nuestro método de tres fases: desde el esbozo preliminar hasta el diseño detallado y la implementación digital final.",
+      "imageAlt": "Proceso de diseño"
+    },
+    "phase1": {
+      "tag": "Fase 01",
+      "title": "Planificación y boceto",
+      "description": "Cada proyecto comienza en la mesa de dibujo, donde nuestras visiones se encuentran con la realidad del papel. Aquí es donde se establecen las bases de los futuros designs digitales, asegurando que cada paso que damos esté bien pensado y sea intencional.",
+      "imageAlt": "Planificación y boceto"
+    },
+    "phase2": {
+      "tag": "Fase 02",
+      "title": "Perfección en cada pixel",
+      "description": "Transformamos ideas en experiencias digitales impecables.",
+      "features": {
+        "feat1": "Detalles que definen",
+        "feat2": "Arte y precisión en diseño digital",
+        "feat3": "Fusionamos tecnología y creatividad para resultados superiores."
+      },
+      "imageAlt": "Perfección en cada pixel"
+    },
+    "phase3": {
+      "tag": "Fase 03",
+      "title": "El poder de los colores en tu marca",
+      "description": "Explora cómo los colores definen el carácter y la percepción de tu marca. Nuestra estrategia no solo se basa en estética, sino en un estudio profundo del impacto emocional y psicológico de cada tono en el consumidor.",
+      "colors": {
+        "royalblue": "Azul Real",
+        "mediumblue": "Azul Medio",
+        "yellow": "Amarillo",
+        "darkgray": "Gris Oscuro"
+      }
+    },
+    "result": {
+      "tag": "Resultado",
+      "title": "Resultado final",
+      "images": {
+        "processAlt": "Resultado final - proceso",
+        "appAlt": "Resultado final - aplicación",
+        "fullAlt": "Resultado final completo"
+      }
+    }
+  }
+}

@@ -1,0 +1,338 @@
+{
+  "cartPage": {
+    "breadcrumb": {
+      "home": "Home",
+      "summary": "1. Review",
+      "shippingPayment": "2. Delivery and Payment Details"
+    },
+    "success": {
+      "title": "Payment Authorized Successfully!",
+      "description": "Your transaction has been approved. Your cloud hosting plan configuration is currently being processed for immediate activation.",
+      "paymentReference": "Payment ID:",
+      "paidAmount": "Total Paid:",
+      "transactionStatus": "Transaction State:",
+      "approved": "APPROVED",
+      "backToCatalog": "Return to Catalog"
+    },
+    "empty": {
+      "title": "Your shopping cart is empty",
+      "description": "We could not find any hosting services or plans selected in your current browsing session.",
+      "goToStore": "View Catalog"
+    },
+    "order": {
+      "title": "Products in Your Order",
+      "clear": "Remove Plans"
+    },
+    "financial": {
+      "title": "Account Summary",
+      "couponPlaceholder": "Promo code",
+      "applyCoupon": "Validate",
+      "appliedCoupon": "Promo {code} (-{discount}%)",
+      "remove": "Delete",
+      "couponInvalid": "The discount code you entered is invalid or has expired.",
+      "subtotal": "Subtotal amount:",
+      "discount": "Discount applied:",
+      "netTotal": "Net Balance Due:",
+      "tax": "VAT {tax}"
+    },
+    "actions": {
+      "proceedToPayment": "Continue to Payment Form",
+      "processing": "Checking Funds through Octano...",
+      "payAmount": "Authorize {amount}",
+      "backToCart": "Edit my order / Modify coupon"
+    },
+    "errors": {
+      "declined": "The charge was rejected by the card issuer.",
+      "connection": "A communication error occurred with the payment platform."
+    },
+    "metadata": {
+      "couponApplied": "Promo code active",
+      "standardSale": "Standard digital purchase"
+    },
+    "form": {
+      "buyerTitle": "Purchaser / Billing Details",
+      "addressTitle": "Contact and Activation Details",
+      "paymentTitle": "Secured Payment Gateway",
+      "firstName": "First Name(s) *",
+      "lastName": "Last Name(s) *",
+      "email": "Email Address *",
+      "phone": "Cell Phone (10 digits) *",
+      "company": "Company Name (Optional)",
+      "streetAddress": "Street, Exterior No. and Interior No. *",
+      "streetAddressPlaceholder": "Av. Universidad 450, Apt 4",
+      "neighborhood": "Neighborhood / Intersections (Optional)",
+      "neighborhoodPlaceholder": "Vértiz Narvarte",
+      "city": "City *",
+      "state": "State / Province *",
+      "statePlaceholder": "Mexico City",
+      "postalCode": "ZIP / Postal Code *",
+      "country": "Country",
+      "mexico": "Mexico (MX)",
+      "cardNumber": "Card Number (Visa / Mastercard) *",
+      "cardNumberPlaceholder": "4152 0000 0000 0000",
+      "cardHolderName": "Cardholder Full Name *",
+      "cardHolderPlaceholder": "Exactly as shown on the card",
+      "expiryMonth": "Exp. Month (MM) *",
+      "expiryMonthPlaceholder": "05",
+      "expiryYear": "Exp. Year (YYYY) *",
+      "expiryYearPlaceholder": "2029",
+      "cvv": "Security Code (CVV) *",
+      "cvvPlaceholder": "•••"
+    },
+    "security": {
+      "note": "Secured Transaction"
+    },
+    "images": {
+      "etominAlt": "Octano",
+      "securePaymentAlt": "Safe transaction"
+    }
+  },
+  "customPlan": {
+    "hero": {
+      "badge": "User Dashboard",
+      "title": "Add tailored quotation"
+    },
+    "imageAlt": "Elevark logo",
+    "authorized": {
+      "title": "Payment verified",
+      "description": "Please provide the quotation number and the price previously agreed with our commercial team to proceed with your checkout."
+    },
+    "form": {
+      "badge": "Tailored checkout",
+      "title": "Quotation details",
+      "quoteLabel": "Quotation number",
+      "quotePlaceholder": "Ex. ELV-2026-001",
+      "amountLabel": "Agreed price",
+      "amountPlaceholder": "0.00",
+      "taxNote": "+ Corresponding VAT will be added on the following screen."
+    },
+    "buttons": {
+      "adding": "Placing in basket...",
+      "addToCart": "Add to basket"
+    },
+    "errors": {
+      "quoteRequired": "You must provide a valid quotation number.",
+      "invalidAmount": "You must enter a valid financial amount."
+    }
+  },
+  "header": {
+    "logoAlt": "Elevark",
+    "titleAlt": "Elevark",
+    "cart": "Cart",
+    "changeLanguage": "Change language",
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "solutions": "Solutions",
+      "processes": "Processes"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": {
+        "part1": "Boost your",
+        "highlight": "brand",
+        "part2": "with design and strategy"
+      },
+      "description": "We create visual experiences and digital strategies that don't just look good, but convert. Branding, content, automation, and campaigns with a modern aesthetic focused on results.",
+      "imageAlt": "Digital Marketing"
+    },
+    "services": {
+      "branding": {
+        "category": "Branding",
+        "title": "Logo & Identity"
+      },
+      "content": {
+        "category": "Content",
+        "title": "Design & Creatives"
+      },
+      "motion": {
+        "category": "Motion",
+        "title": "Animations & Ads"
+      }
+    },
+    "strategy": {
+      "tag": "Digital strategy",
+      "title": {
+        "part1": "Position your brand",
+        "highlight": "where it matters"
+      },
+      "description": "We design digital strategies oriented towards growth, recognition, and conversion. Less noise, more impact.",
+      "button": "Get started now",
+      "imageAlt": "Position your brand"
+    }
+  },
+  "contact": {
+    "title": "Let's Connect!",
+    "description": "At Elevark, we are ready to bring your ideas to life with customized digital strategies that truly engage and convert. Ready to transform your online presence? Write to us, call us, or come visit us.",
+    "info": {
+      "email": {
+        "label": "Email",
+        "value": "ayuda@elevark.com.mx"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "5550881886"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Calle Alfonso Napoles Gandara #50, Int 401, 4th Floor, Col. Pena Blanca Santa Fe, Cp. 01210, Alvaro Obregon, Mexico City"
+      }
+    },
+    "form": {
+      "placeholders": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone number",
+        "message": "Message"
+      },
+      "successMessage": "Message sent successfully.",
+      "errorFallback": "Could not send the message",
+      "buttons": {
+        "send": "SEND",
+        "sending": "SENDING..."
+      }
+    }
+  },
+  "footer": {
+    "legal": {
+      "title": "Legal information",
+      "terms": "Terms and conditions",
+      "refunds": "Returns and refunds",
+      "privacy": "Privacy policy",
+      "paymentAlt": "Payment methods"
+    },
+    "contact": {
+      "title": "Contact",
+      "phoneLabel": "Phone",
+      "addressLabel": "Address",
+      "addressLine1": "CALLE ALFONSO NAPOLES GANDARA #50",
+      "addressLine2": "INT 401, FLOOR 4, COL. PENA BLANCA",
+      "addressLine3": "SANTA FE, CP. 01210",
+      "addressLine4": "MEXICO CITY",
+      "emailLabel": "Email"
+    },
+    "brand": {
+      "tagline": "Digital solutions powered by technology, strategy, and design."
+    },
+    "copyright": "All rights reserved."
+  },
+  "about": {
+    "hero": {
+      "tag": "About Us",
+      "title": {
+        "part1": "Meet the experts",
+        "part2": "in",
+        "highlight": "strategy and design"
+      },
+      "description": "At Elevark, we believe that every detail in design communicates something essential about your brand. Our specialists are leaders in transforming concepts into impactful visual realities, here to ensure your message is not just seen, but felt.",
+      "specializationLabel": "Areas of Specialization:"
+    },
+    "specializations": {
+      "branding": {
+        "title": "Logo & Identity",
+        "description": "Strengthen your brand presence with designs that capture the essence of your business."
+      },
+      "illustration": {
+        "title": "Illustration & Icons",
+        "description": "Visualize your message with custom-made graphics that speak louder than words."
+      },
+      "interaction": {
+        "title": "Interaction & Motion",
+        "description": "Attract and hold attention with smooth animations and transitions that enhance the experience."
+      }
+    },
+    "history": {
+      "tag": "Our History",
+      "title": {
+        "part1": "Our History and",
+        "highlight": "Competences"
+      },
+      "description": "At Elevark, we transform data into design, creating visual solutions that not only capture attention but also drive conversion. Our team combines years of experience in market analysis with an undeniable passion for creative design, ensuring that every project not only meets but exceeds our clients' expectations."
+    },
+    "skills": {
+      "design": "Logo & design",
+      "illustrations": "Complex illustrations",
+      "icons": "Icon Sets",
+      "motion": "Motion graphics"
+    },
+    "highlights": {
+      "experience": "Proven Experience",
+      "awards": "Awards & Recognition",
+      "education": "Training & Education"
+    }
+  },
+  "plans": {
+    "services": {
+      "title": "Services",
+      "description": "Let's help your business unlock its full potential together with our specialized services"
+    },
+    "customProject": {
+      "imageAlt": "Custom Project",
+      "title": "Custom Project",
+      "description": "At our company, we understand that every business is unique. That's why we specialize in creating custom projects tailored to the specific needs of your company, ensuring that every marketing and design strategy is perfectly aligned with your goals and vision. Get a quote for your project now or proceed to payment.",
+      "buttons": {
+        "quote": "Get a Quote",
+        "pay": "Pay"
+      }
+    },
+    "packages": {
+      "title": "Packages",
+      "description": "Simplify your operations and optimize your resources. Our service packages will help you reach maximum efficiency."
+    },
+    "cards": {
+      "taxNote": "MXN + VAT",
+      "recommended": "Recommended",
+      "addToCart": "Add to Cart"
+    }
+  },
+  "processes": {
+    "hero": {
+      "tag": "Our Processes",
+      "title": {
+        "part1": "From conceptualization",
+        "part2": "to",
+        "highlight": "creation"
+      },
+      "description": "At Elevark, we transform abstract ideas into stunning illustrations. In this case study, we explore our three-phase method: from preliminary sketching to detailed design and final digital execution.",
+      "imageAlt": "Design process"
+    },
+    "phase1": {
+      "tag": "Phase 01",
+      "title": "Planning and Sketching",
+      "description": "Every project begins on the drawing board, where our visions meet the reality of paper. This is where the foundations for future digital designs are laid, ensuring that every step we take is deliberate and intentional.",
+      "imageAlt": "Planning and sketching"
+    },
+    "phase2": {
+      "tag": "Phase 02",
+      "title": "Perfection in every pixel",
+      "description": "We transform ideas into flawless digital experiences.",
+      "features": {
+        "feat1": "Defining details",
+        "feat2": "Art and precision in digital design",
+        "feat3": "We merge technology and creativity for superior results."
+      },
+      "imageAlt": "Perfection in every pixel"
+    },
+    "phase3": {
+      "tag": "Phase 03",
+      "title": "The power of colors in your brand",
+      "description": "Explore how colors define the character and perception of your brand. Our strategy is not just based on aesthetics, but on a deep study of the emotional and psychological impact of each tone on the consumer.",
+      "colors": {
+        "royalblue": "Royal Blue",
+        "mediumblue": "Medium Blue",
+        "yellow": "Yellow",
+        "darkgray": "Dark Gray"
+      }
+    },
+    "result": {
+      "tag": "Result",
+      "title": "Final result",
+      "images": {
+        "processAlt": "Final result - process",
+        "appAlt": "Final result - application",
+        "fullAlt": "Complete final result"
+      }
+    }
+  }
+}
