@@ -197,9 +197,9 @@
   "footer": {
     "legal": {
       "title": "Legal information",
-      "terms": "Terms and conditions",
-      "refunds": "Returns and refunds",
-      "privacy": "Privacy policy",
+      "terms": "TERMS AND CONDITIONS",
+      "refunds": "RETURN AND REFUND POLICY",
+      "privacy": "PRIVACY POLICY",
       "paymentAlt": "Payment methods"
     },
     "contact": {

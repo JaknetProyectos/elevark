@@ -197,9 +197,9 @@
   "footer": {
     "legal": {
       "title": "Información legal",
-      "terms": "Términos y condiciones",
-      "refunds": "Devoluciones y reembolsos",
-      "privacy": "Política de privacidad",
+      "terms": "TÉRMINOS Y CONDICIONES",
+      "refunds": "POLÍTICA DE DEVOLUCIONES Y REEMBOLSOS",
+      "privacy": "POLÍTICA DE PRIVACIDAD",
       "paymentAlt": "Métodos de pago"
     },
     "contact": {
