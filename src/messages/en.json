@@ -334,5 +334,46 @@
         "fullAlt": "Complete final result"
       }
     }
+  },
+  "ContactEmail": {
+    "missingFields": "Missing required fields (nombre, email, mensaje)",
+    "internalError": "Internal server error",
+    "businessSubject": "🚨 [Lead] {asunto} - {nombre}",
+    "clientSubject": "✓ We received your request - {brandName}",
+    "businessTitle": "New Contact Lead",
+    "businessSubtitle": "A new form submission has been received from the website.",
+    "clientTitle": "We have received your message",
+    "clientSubtitle": "Thank you for getting in touch with our strategy and design team.",
+    "applicantDetails": "Applicant Details",
+    "messageSummary": "Your Message Summary",
+    "name": "Name",
+    "email": "Email Address",
+    "sentMessage": "Sent message",
+    "automatedDisclaimer": "* This is an automated email confirming the receipt of your request. Our strategy and development team will analyze your data to contact you shortly.",
+    "allRightsReserved": "All rights reserved.",
+    "footerText": "Digital Strategy & Professional Marketing."
+  },
+  "PurchaseReceipt": {
+    "missingFields": "Missing required fields to process the order",
+    "internalError": "Internal server error",
+    "clientTitle": "Purchase Confirmation",
+    "clientSubtitle": "Thank you for your purchase. Your order #{orderId} has been successfully processed.",
+    "clientSubject": "✓ Your purchase receipt #{orderId} - {brandName}",
+    "businessTitle": "New Sale Processed!",
+    "businessSubtitle": "A new successful payment of ${amount} MXN has been registered.",
+    "businessSubject": "💰 [Sale] Order #{orderId} - ${amount} MXN",
+    "orderIdLabel": "Order ID",
+    "paymentDateLabel": "Payment Date",
+    "buyerInfo": "Buyer Information",
+    "billingDetails": "Billing Details",
+    "customerLabel": "Customer",
+    "addressLabel": "Address",
+    "companyLabel": "Company",
+    "operationDetails": "Transaction Details",
+    "productSummary": "Product Summary",
+    "totalPaid": "Total Paid",
+    "clientDisclaimer": "* Charges will appear on your statement as technology services. If you require a tax invoice, please reply directly to this email attaching your full tax details within 72 hours.",
+    "allRightsReserved": "All rights reserved.",
+    "footerText": "Digital Strategy & Professional Marketing."
   }
 }

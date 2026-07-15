@@ -334,5 +334,46 @@
         "fullAlt": "Resultado final completo"
       }
     }
+  },
+  "ContactEmail": {
+    "missingFields": "Faltan campos requeridos (nombre, email, mensaje)",
+    "internalError": "Error interno del servidor",
+    "businessSubject": "🚨 [Lead] {asunto} - {nombre}",
+    "clientSubject": "✓ Recibimos tu solicitud - {brandName}",
+    "businessTitle": "Nuevo Lead de Contacto",
+    "businessSubtitle": "Se ha recibido un nuevo formulario desde el sitio web.",
+    "clientTitle": "Hemos recibido tu mensaje",
+    "clientSubtitle": "Gracias por ponerte en contacto con nuestro equipo de estrategia y diseño.",
+    "applicantDetails": "Detalles del Solicitante",
+    "messageSummary": "Resumen de tu Mensaje",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "sentMessage": "Mensaje enviado",
+    "automatedDisclaimer": "* Este es un correo automatizado confirmando la recepción de tu solicitud. Nuestro equipo de estrategia y desarrollo analizará tus datos para contactarte a la brevedad.",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "footerText": "Estrategia Digital & Marketing Efectivo."
+  },
+  "PurchaseReceipt": {
+    "missingFields": "Faltan campos requeridos para procesar la orden",
+    "internalError": "Error interno del servidor",
+    "clientTitle": "Confirmación de Compra",
+    "clientSubtitle": "Gracias por tu compra. Tu orden #{orderId} ha sido procesada con éxito.",
+    "clientSubject": "✓ Tu recibo de compra #{orderId} - {brandName}",
+    "businessTitle": "¡Nueva Venta Procesada!",
+    "businessSubtitle": "Se ha registrado un nuevo pago exitoso por un monto de ${amount} MXN.",
+    "businessSubject": "💰 [Venta] Orden #{orderId} - ${amount} MXN",
+    "orderIdLabel": "ID de Orden",
+    "paymentDateLabel": "Fecha de Pago",
+    "buyerInfo": "Información del Comprador",
+    "billingDetails": "Detalles de Facturación",
+    "customerLabel": "Cliente",
+    "addressLabel": "Dirección",
+    "companyLabel": "Empresa",
+    "operationDetails": "Detalles de la Operación",
+    "productSummary": "Resumen de Productos",
+    "totalPaid": "Total Pagado",
+    "clientDisclaimer": "* Los cargos aparecerán en tu estado de cuenta bajo el concepto de servicios tecnológicos. Si requieres factura fiscal, por favor responde directamente a este correo adjuntando tus datos fiscales completos en un plazo no mayor a 72 horas.",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "footerText": "Estrategia Digital & Marketing Efectivo."
   }
 }

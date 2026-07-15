@@ -224,6 +224,8 @@ export default function CarritoCheckoutPage() {
       },
     };
 
+    
+
     try {
       const response = await processOctanoPayment(paymentPayload);
 
@@ -231,7 +233,7 @@ export default function CarritoCheckoutPage() {
         setSuccessData(response.data);
 
         try {
-          await fetch("/api/checkout", {
+          await fetch(`/${locale ?? "es"}/api/checkout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -240,6 +242,7 @@ export default function CarritoCheckoutPage() {
               customer: paymentPayload.customer,
               items,
               metadata: paymentPayload.metadata,
+              locale
             }),
           });
         } catch (emailError) {
@@ -296,7 +299,7 @@ export default function CarritoCheckoutPage() {
               </div>
             </div>
 
-            <Link href="/paquetes" className="mt-8 block">
+            <Link href="/soluciones" className="mt-8 block">
               <button className="w-full rounded-xl bg-yellow-300 py-6 text-sm font-bold text-[#071018] transition-all duration-300 hover:bg-yellow-200 hover:shadow-[0_0_25px_rgba(34,211,238,0.22)]">
                 {t("success.backToCatalog")}
               </button>
@@ -370,7 +373,7 @@ export default function CarritoCheckoutPage() {
             <p className="mx-auto mt-2 max-w-xs text-xs leading-relaxed text-slate-400">
               {t("empty.description")}
             </p>
-            <Link href="/paquetes" className="mt-8 inline-block">
+            <Link href="/soluciones" className="mt-8 inline-block">
               <button className="rounded-xl border border-yellow-400/20 bg-yellow-300 px-8 py-5 text-xs font-semibold text-[#071018] transition-all duration-300 hover:bg-yellow-200">
                 {t("empty.goToStore")}
               </button>
@@ -413,7 +416,7 @@ export default function CarritoCheckoutPage() {
                           <div className="grid grid-cols-[88px_minmax(0,1fr)] gap-4 sm:grid-cols-[96px_minmax(0,1fr)]">
                             <div className="relative overflow-hidden rounded-2xl border border-white/5 bg-[#081019]/90 p-2">
                               <Link
-                                href={`/producto/${item.product.id}`}
+                                href={`/soluciones`}
                                 className="absolute inset-0 z-10"
                               />
                               <Image

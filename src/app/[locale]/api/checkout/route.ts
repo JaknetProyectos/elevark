@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import * as React from "react";
+import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -12,50 +12,62 @@ const BRAND_LOGO = "https://elevark.com.mx/title.png";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { orderId, amount, customer, items, metadata } = body;
+    const { orderId, amount, customer, items, metadata, locale: bodyLocale } = body;
+
+    // Priorizar el locale enviado desde el frontend o usar fallback
+    const acceptLanguage = req.headers.get("accept-language") || "es";
+    const fallbackLocale = acceptLanguage.split(",")[0].split("-")[0] || "es";
+    const locale = bodyLocale || fallbackLocale;
+
+    // Inicializar traductor de next-intl en server-side
+    const t = await getTranslations({ locale, namespace: "PurchaseReceipt" });
 
     if (!orderId || !amount || !customer || !items) {
       return NextResponse.json(
-        { error: "Faltan campos requeridos para procesar la orden" },
+        { error: t("missingFields") },
         { status: 400 }
       );
     }
 
     // 1. EMAIL PARA EL CLIENTE (TICKET / RECIBO DE COMPRA)
     const clientReceiptHtml = renderReceiptTemplate({
-      title: "Confirmación de Compra",
-      subtitle: `Gracias por tu compra. Tu orden #${orderId} ha sido procesada con éxito.`,
+      title: t("clientTitle"),
+      subtitle: t("clientSubtitle", { orderId }),
       orderId,
       amount,
       customer,
       items,
       metadata,
       isBusiness: false,
+      locale,
+      t,
     });
 
     await resend.emails.send({
       from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
       to: customer.email,
-      subject: `✓ Tu recibo de compra #${orderId} - ${BRAND_NAME}`,
+      subject: t("clientSubject", { orderId, brandName: BRAND_NAME }),
       html: clientReceiptHtml,
     });
 
     // 2. EMAIL PARA EL NEGOCIO (NOTIFICACIÓN DE VENTA)
     const businessNotificationHtml = renderReceiptTemplate({
-      title: "¡Nueva Venta Procesada!",
-      subtitle: `Se ha registrado un nuevo pago exitoso por un monto de $${amount.toFixed(2)} MXN.`,
+      title: t("businessTitle"),
+      subtitle: t("businessSubtitle", { amount: amount.toFixed(2) }),
       orderId,
       amount,
       customer,
       items,
       metadata,
       isBusiness: true,
+      locale,
+      t,
     });
 
     await resend.emails.send({
       from: `${BRAND_NAME} Sales <${SUPPORT_EMAIL}>`,
       to: SUPPORT_EMAIL,
-      subject: `💰 [Venta] Orden #${orderId} - $${amount.toFixed(2)} MXN`,
+      subject: t("businessSubject", { orderId, amount: amount.toFixed(2) }),
       html: businessNotificationHtml,
     });
 
@@ -78,6 +90,8 @@ function renderReceiptTemplate({
   items,
   metadata,
   isBusiness,
+  locale,
+  t,
 }: {
   title: string;
   subtitle: string;
@@ -87,10 +101,16 @@ function renderReceiptTemplate({
   items: any[];
   metadata: any;
   isBusiness: boolean;
+  locale: string;
+  t: any;
 }) {
+  const formattedDate = new Date().toLocaleDateString(locale === "es" ? "es-MX" : "en-US", {
+    timeZone: "America/Mexico_City",
+  });
+
   return `
     <!DOCTYPE html>
-    <html lang="es">
+    <html lang="${locale}">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,20 +165,20 @@ function renderReceiptTemplate({
             <!-- Datos Generales de la Transacción -->
             <div class="grid">
               <div class="col">
-                <div class="info-label">ID de Orden</div>
+                <div class="info-label">${t("orderIdLabel")}</div>
                 <div class="info-value" style="font-family: monospace; font-size: 14px; color: #ffffff;">${orderId}</div>
               </div>
               <div class="col">
-                <div class="info-label">Fecha de Pago</div>
-                <div class="info-value">${new Date().toLocaleDateString('es-MX', { timeZone: 'America/Mexico_City' })}</div>
+                <div class="info-label">${t("paymentDateLabel")}</div>
+                <div class="info-value">${formattedDate}</div>
               </div>
             </div>
 
             <!-- Detalles del Cliente & Envío -->
-            <div class="section-label">${isBusiness ? 'Información del Comprador' : 'Detalles de Facturación'}</div>
+            <div class="section-label">${isBusiness ? t("buyerInfo") : t("billingDetails")}</div>
             <div class="grid">
               <div class="col">
-                <div class="info-label">Cliente</div>
+                <div class="info-label">${t("customerLabel")}</div>
                 <div class="info-value">
                   <strong>${customer.nombre} ${customer.apellido}</strong><br/>
                   ${customer.email}<br/>
@@ -166,27 +186,27 @@ function renderReceiptTemplate({
                 </div>
               </div>
               <div class="col">
-                <div class="info-label">Dirección</div>
+                <div class="info-label">${t("addressLabel")}</div>
                 <div class="info-value">
                   ${customer.direccion}<br/>
                   ${customer.direccion2 ? customer.direccion2 + '<br/>' : ''}
                   ${customer.ciudad}, ${customer.estado}<br/>
                   CP: ${customer.cp}, ${customer.pais}
-                  ${customer.empresa ? '<br/><strong>Empresa:</strong> ' + customer.empresa : ''}
+                  ${customer.empresa ? `<br/><strong>${t("companyLabel")}:</strong> ` + customer.empresa : ''}
                 </div>
               </div>
             </div>
 
             <!-- Notas o Metadata del Cupón -->
             ${metadata && (metadata.notes || Object.keys(metadata).length > 0) ? `
-              <div class="info-label">Detalles de la Operación</div>
+              <div class="info-label">${t("operationDetails")}</div>
               <div class="meta-box">
                 ${metadata.notes || JSON.stringify(metadata)}
               </div>
             ` : ''}
 
             <!-- Desglose de Productos (Ticket) -->
-            <div class="section-label">Resumen de Productos</div>
+            <div class="section-label">${t("productSummary")}</div>
             <div class="ticket-box">
               ${items.map((item: any) => `
                 <div class="ticket-row">
@@ -202,22 +222,22 @@ function renderReceiptTemplate({
               
               <!-- Total -->
               <div class="ticket-row total-box">
-                <div class="item-name total-label">Total Pagado</div>
+                <div class="item-name total-label">${t("totalPaid")}</div>
                 <div class="item-price total-amount">$${amount.toFixed(2)} MXN</div>
               </div>
             </div>
 
             ${!isBusiness ? `
               <p style="font-size: 13px; color: #6b7280; margin-top: 28px; line-height: 1.6; font-style: italic;">
-                * Los cargos aparecerán en tu estado de cuenta bajo el concepto de servicios tecnológicos. Si requieres factura fiscal, por favor responde directamente a este correo adjuntando tus datos fiscales completos en un plazo no mayor a 72 horas.
+                ${t("clientDisclaimer")}
               </p>
             ` : ''}
           </div>
 
           <!-- Footer Legal -->
           <div class="footer">
-            © ${new Date().getFullYear()} <a href="${BRAND_URL}">${BRAND_NAME}</a>. Todos los derechos reservados.<br/>
-            Infraestructura de Hosting, Estrategia Digital & Desarrollo Web de Alto Rendimiento.
+            © ${new Date().getFullYear()} <a href="${BRAND_URL}">${BRAND_NAME}</a>. ${t("allRightsReserved")}<br/>
+            ${t("footerText")}
           </div>
 
         </div>

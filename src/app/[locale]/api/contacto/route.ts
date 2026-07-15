@@ -1,25 +1,33 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import * as React from "react";
+import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const SUPPORT_EMAIL = "ayuda@elevark.com.mx";
 const BRAND_NAME = "Elevark";
 const BRAND_URL = "elevark.com.mx";
-const BRAND_LOGO = "https://elevark.com.mx/title.png"; 
+const BRAND_LOGO = "https://elevark.com.mx/title.png";
 
-// Campos estándar para filtrarlos en la sección de "Campos adicionales"
-const STANDARD_FIELDS = ["nombre", "email", "mensaje", "asunto"];
+// Se añade "locale" para evitar que se renderice en los campos dinámicos adicionales
+const STANDARD_FIELDS = ["nombre", "email", "mensaje", "asunto", "locale"];
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { nombre, email, mensaje, asunto = "Nuevo mensaje de contacto" } = body;
+    const { nombre, email, mensaje, asunto = "Nuevo mensaje de contacto", locale: bodyLocale } = body;
+
+    // Priorizar el locale enviado desde el frontend. Si no viene, usar fallback de cabecera o "es"
+    const acceptLanguage = req.headers.get("accept-language") || "es";
+    const fallbackLocale = acceptLanguage.split(",")[0].split("-")[0] || "es";
+    const locale = bodyLocale || fallbackLocale;
+
+    // Inicializar traductor con el idioma correcto garantizado
+    const t = await getTranslations({ locale, namespace: "ContactEmail" });
 
     if (!nombre || !email || !mensaje) {
       return NextResponse.json(
-        { error: "Faltan campos requeridos (nombre, email, mensaje)" },
+        { error: t("missingFields") },
         { status: 400 }
       );
     }
@@ -31,42 +39,45 @@ export async function POST(req: Request) {
 
     // 1. EMAIL PARA EL NEGOCIO (LEAD DE CONTACTO)
     const businessEmailHtml = renderEmailTemplate({
-      title: "Nuevo Lead de Contacto",
-      subtitle: "Se ha recibido un nuevo formulario desde el sitio web.",
+      title: t("businessTitle"),
+      subtitle: t("businessSubtitle"),
       nombre,
       email,
       mensaje,
       extraFields,
       isBusiness: true,
+      t,
     });
 
     await resend.emails.send({
-      from: `${BRAND_NAME} Leads <${SUPPORT_EMAIL}>`, 
+      from: `${BRAND_NAME} Leads <${SUPPORT_EMAIL}>`,
       to: SUPPORT_EMAIL,
-      subject: `🚨 [Lead] ${asunto} - ${nombre}`,
+      subject: t("businessSubject", { asunto, nombre }),
       html: businessEmailHtml,
     });
 
     // 2. EMAIL PARA EL CLIENTE (CONFIRMACIÓN DE RECEPCIÓN)
     const clientEmailHtml = renderEmailTemplate({
-      title: "Hemos recibido tu mensaje",
-      subtitle: "Gracias por ponerte en contacto con nuestro equipo de estrategia y diseño.",
+      title: t("clientTitle"),
+      subtitle: t("clientSubtitle"),
       nombre,
       email,
       mensaje,
       extraFields,
       isBusiness: false,
+      t,
     });
 
     await resend.emails.send({
       from: `${BRAND_NAME} <${SUPPORT_EMAIL}>`,
       to: email,
-      subject: `✓ Recibimos tu solicitud - ${BRAND_NAME}`,
+      subject: t("clientSubject", { brandName: BRAND_NAME }),
       html: clientEmailHtml,
     });
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: any) {
+    // Definimos un fallback rápido en caso de que falle la inicialización de las traducciones en el catch
     return NextResponse.json(
       { error: error.message || "Error interno del servidor" },
       { status: 500 }
@@ -83,6 +94,7 @@ function renderEmailTemplate({
   mensaje,
   extraFields,
   isBusiness,
+  t,
 }: {
   title: string;
   subtitle: string;
@@ -91,10 +103,11 @@ function renderEmailTemplate({
   mensaje: string;
   extraFields: [string, any][];
   isBusiness: boolean;
+  t: any;
 }) {
   return `
     <!DOCTYPE html>
-    <html lang="es">
+    <html lang="${t.locale}">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,15 +146,15 @@ function renderEmailTemplate({
             <h1 class="title">${title}</h1>
             <p class="subtitle">${subtitle}</p>
 
-            <div class="section-label">${isBusiness ? 'Detalles del Solicitante' : 'Resumen de tu Mensaje'}</div>
+            <div class="section-label">${isBusiness ? t("applicantDetails") : t("messageSummary")}</div>
             
             <div class="card">
               <div class="field">
-                <div class="label">Nombre</div>
+                <div class="label">${t("name")}</div>
                 <div class="value">${nombre}</div>
               </div>
               <div class="field">
-                <div class="label">Correo Electrónico</div>
+                <div class="label">${t("email")}</div>
                 <div class="value" style="color: #facc15; font-weight: 600;">${email}</div>
               </div>
               
@@ -154,20 +167,20 @@ function renderEmailTemplate({
               `).join('')}
             </div>
 
-            <div class="section-label">Mensaje enviado</div>
+            <div class="section-label">${t("sentMessage")}</div>
             <div class="msg-box">${mensaje}</div>
 
             ${!isBusiness ? `
               <p style="font-size: 13px; color: #6b7280; margin-top: 28px; line-height: 1.6; font-style: italic;">
-                * Este es un correo automatizado confirmando la recepción de tu solicitud. Nuestro equipo de estrategia y desarrollo analizará tus datos para contactarte a la brevedad.
+                ${t("automatedDisclaimer")}
               </p>
             ` : ''}
           </div>
 
           <!-- Footer Legal -->
           <div class="footer">
-            © ${new Date().getFullYear()} <a href="${BRAND_URL}">${BRAND_NAME}</a>. Todos los derechos reservados.<br/>
-            Infraestructura de Hosting, Estrategia Digital & Desarrollo Web de Alto Rendimiento.
+            © ${new Date().getFullYear()} <a href="${BRAND_URL}">${BRAND_NAME}</a>. ${t("allRightsReserved")}<br/>
+            ${t("footerText")}
           </div>
 
         </div>
